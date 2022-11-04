@@ -14,11 +14,11 @@ export default () => {
   // • Add explicit parameter types and return type
   // • Fix any errors resulting from invalid types
 
-  function add(x, y) {
+  function add(x: number, y: number): number {
     return x + y;
   }
 
-  function sumArray(numbers) {
+  function sumArray(numbers: number[]): number {
     return numbers.reduce(add, 0);
   }
 
