@@ -1,0 +1,14 @@
+/dist
+
+# Logs
+*.log
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+
+# System Files
+.DS_Store
+Thumbs.db

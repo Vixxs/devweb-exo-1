@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "rootDir": "./src/",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "target": "es6",
+    "jsx": "react",
+    "sourceMap": true,
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "strict": true
+  },
+  "files": ["src/index.ts"],
+  "exclude": ["node_modules", "build", "scripts", "jest"]
+}
