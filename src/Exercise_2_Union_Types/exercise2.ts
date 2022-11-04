@@ -16,7 +16,7 @@ export default () => {
   // • Fix the error on lines 21 and 22 by setting the type of `secretWord` to `string OR null OR undefined`
   //   (Also called a Union type)
 
-  let secretWord: string;
+  let secretWord: (string|null|undefined);
   secretWord = "supercalifragilisticexpialidocious";
   secretWord = null;
   secretWord = undefined;
@@ -28,13 +28,12 @@ export default () => {
   // • Restrict type of `value` to `string OR number`
   // • Fix any resulting errors.
 
-  function doStuff(value: any): void {
+  function doStuff(value: (string|number)): void {
     if (typeof value === "string") {
       console.log(value.toUpperCase().split("").join(" "));
     } else if (typeof value === "number") {
       console.log(value.toPrecision(5));
     }
-
     value; // hover over `value` here
   }
 
@@ -42,8 +41,6 @@ export default () => {
   doStuff(22);
   doStuff(222);
   doStuff("hello");
-  doStuff(true);
-  doStuff({});
 
   console.log("[Exercise 2.2]");
 
@@ -51,9 +48,14 @@ export default () => {
   // Instructions:
   // • Use a type guard to fill out the body of the `padLeft` function.
 
-  function padLeft(value: string, padding: number | string): string {
+  function padLeft(value: string, padding: (number|string)): string {
     // if padding is a number, return `${Array(padding + 1).join(' ')}${value}`
+
+    if(typeof padding == "number") return `${Array(padding + 1).join(' ')}${value}`;
     // if padding is a string, return padding + value
+    if(typeof padding == "string") return padding + value;
+
+    return '';
   }
 
   console.log(
