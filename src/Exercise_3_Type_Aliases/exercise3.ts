@@ -15,7 +15,15 @@ export default () => {
   //   expYear: number
   //   cvc: number
 
-  function proccessPayment(creditCardInfo) {
+  type CreditCard = {
+    number: string;
+    expMonth: number;
+    expYear: number;
+    cvc: number
+  }
+
+
+  function proccessPayment(creditCardInfo: CreditCard) {
     console.log(
       "[Exercise 3.1]",
       `Authorizing card ending in "${creditCardInfo.number.substr(-4)}"...`
@@ -34,18 +42,26 @@ export default () => {
   // • Create a `CartItem` type alias and replace the param's type with it
   // • Make variantId optional
 
-  function addToCart(item: { id: number; title: string; variantId: number }) {
+  type CartItem = {
+    id: number; 
+    title: string; 
+    variantId: number;
+  }
+
+  function addToCart(item: CartItem) {
     console.log("[Exercise 2.1]", `Adding "${item.title}" to cart.`);
   }
 
-  addToCart({ id: 1, title: "Concrete shoes" });
+  addToCart({ id: 1, title: "Concrete shoes" , variantId: 2});
 
   // ======== Exercise 3.3 ========
   // Type aliases can also be used as a synonym for Union Types
   // Instructions:
   // • Replace the padding union type declaration with a type alias
 
-  function padLeft(value: string, padding: number | string): string {
+  type Padding = (number | string);
+
+  function padLeft(value: string, padding: Padding): string {
     if (typeof padding === "number") {
       return `${Array(padding + 1).join(" ")}${value}`;
     } else {
@@ -60,7 +76,9 @@ export default () => {
   // Instructions:
   // • Create an Alignment type alias that only allows the string literals "LEFT", "RIGHT" or "CENTER";
 
-  function doAlign(alignment) {
+  type Alignment = ("LEFT"|"RIGHT"|"CENTER");
+
+  function doAlign(alignment: Alignment) {
     switch (alignment) {
       case "LEFT":
         console.log("[Exercise 3.3]", "Aligning to the left");
